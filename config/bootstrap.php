@@ -215,5 +215,6 @@ ServerRequest::addDetector('tablet', function ($request) {
 
 // Enable debug kit in debug mode:
 if (Configure::read('debug')) {
+    Configure::write('DebugKit.ignoreAuthorization', true);
     Configure::write('DebugKit.forceEnable', true);
 }
