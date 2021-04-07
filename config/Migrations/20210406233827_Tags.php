@@ -3,35 +3,21 @@ declare(strict_types=1);
 
 use Migrations\AbstractMigration;
 
-class Users extends AbstractMigration
+class Tags extends AbstractMigration
 {
     public function up()
     {
-        $table = $this->table('users');
+        $table = $this->table('tags');
         $table
-            ->addColumn('email', 'string', [
+            ->addColumn('user_id', 'integer', [
                 'default' => null,
-                'limit' => 50,
+                'limit' => 11,
                 'null' => false
             ])
-            ->addColumn('password', 'string', [
+            ->addColumn('title', 'string', [
                 'default' => null,
                 'limit' => 255,
                 'null' => false
-            ])
-            ->addColumn('name', 'string', [
-                'default' => null,
-                'limit' => 50,
-                'null' => false
-            ])
-            ->addColumn('lastname', 'string', [
-                'default' => null,
-                'limit' => 50,
-                'null' => false
-            ])
-            ->addColumn('active', 'boolean', [
-                'default' => 0,
-                'null' => true
             ])
             ->addColumn('created', 'timestamp', [
                 'default' => 'CURRENT_TIMESTAMP',
@@ -43,12 +29,13 @@ class Users extends AbstractMigration
                 'limit' => null,
                 'null' => true
             ])
+            ->addIndex('title', array('unique' => true))
             ->create();
         $table->changeColumn('id', 'integer', ['signed' => true, 'identity' => true])->update();
     }
 
     public function down()
     {
-        $this->table('users')->drop()->save();
+        $this->table('tags')->drop()->save();
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc39511c606bdf48d995406e9263ec94",
+    "content-hash": "b9b099e5624ac09f8d40fa1f2b8baea5",
     "packages": [
         {
             "name": "cakephp/authentication",
@@ -66,6 +66,65 @@
                 "middleware"
             ],
             "time": "2021-02-11T18:42:51+00:00"
+        },
+        {
+            "name": "cakephp/authorization",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cakephp/authorization.git",
+                "reference": "23f181885ed6c6b3283c8cd6c1b9bb2953d332ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cakephp/authorization/zipball/23f181885ed6c6b3283c8cd6c1b9bb2953d332ea",
+                "reference": "23f181885ed6c6b3283c8cd6c1b9bb2953d332ea",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/http": "^4.0",
+                "php": ">=7.2",
+                "psr/http-client": "^1.0",
+                "psr/http-message": "^1.0",
+                "psr/http-server-handler": "^1.0",
+                "psr/http-server-middleware": "^1.0"
+            },
+            "require-dev": {
+                "cakephp/authentication": "^2.0",
+                "cakephp/bake": "^2.0",
+                "cakephp/cakephp": "^4.0",
+                "cakephp/cakephp-codesniffer": "^4.0",
+                "cakephp/plugin-installer": "^1.3",
+                "phpunit/phpunit": "^8.5 || ^9.3"
+            },
+            "suggest": {
+                "cakephp/http": "To use \"RequestPolicyInterface\" (Not needed separately if using full CakePHP framework).",
+                "cakephp/orm": "To use \"OrmResolver\" (Not needed separately if using full CakePHP framework)."
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Authorization\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "CakePHP Community",
+                    "homepage": "https://github.com/cakephp/authorization/graphs/contributors"
+                }
+            ],
+            "description": "Authorization abstraction layer plugin for CakePHP",
+            "keywords": [
+                "access",
+                "auth",
+                "authorization",
+                "cakephp"
+            ],
+            "time": "2020-12-29T20:19:24+00:00"
         },
         {
             "name": "cakephp/cakephp",

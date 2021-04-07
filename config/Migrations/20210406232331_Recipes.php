@@ -3,35 +3,26 @@ declare(strict_types=1);
 
 use Migrations\AbstractMigration;
 
-class Users extends AbstractMigration
+class Recipes extends AbstractMigration
 {
     public function up()
     {
-        $table = $this->table('users');
+        $table = $this->table('recipes');
         $table
-            ->addColumn('email', 'string', [
+            ->addColumn('user_id', 'integer', [
                 'default' => null,
-                'limit' => 50,
+                'limit' => 11,
                 'null' => false
             ])
-            ->addColumn('password', 'string', [
+            ->addColumn('title', 'string', [
                 'default' => null,
                 'limit' => 255,
                 'null' => false
             ])
-            ->addColumn('name', 'string', [
+            ->addColumn('slug', 'string', [
                 'default' => null,
-                'limit' => 50,
+                'limit' => 191,
                 'null' => false
-            ])
-            ->addColumn('lastname', 'string', [
-                'default' => null,
-                'limit' => 50,
-                'null' => false
-            ])
-            ->addColumn('active', 'boolean', [
-                'default' => 0,
-                'null' => true
             ])
             ->addColumn('created', 'timestamp', [
                 'default' => 'CURRENT_TIMESTAMP',
@@ -43,12 +34,14 @@ class Users extends AbstractMigration
                 'limit' => null,
                 'null' => true
             ])
+            ->addIndex('title', array('unique' => true))
+            ->addForeignKey('user_id', 'users', 'id')
             ->create();
         $table->changeColumn('id', 'integer', ['signed' => true, 'identity' => true])->update();
     }
 
     public function down()
     {
-        $this->table('users')->drop()->save();
+        $this->table('recipes')->drop()->save();
     }
 }
